@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 MAINTAINER Piotr Król <piotr.krol@3mdeb.com>
 
 RUN \
@@ -15,6 +15,9 @@ RUN \
 		uuid-dev \
 		nasm \
 		iasl \
+		git \
+		wget \
+		zip \
 	&& apt-get clean
 
 RUN pip install uefi_firmware
