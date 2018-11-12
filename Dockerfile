@@ -22,7 +22,9 @@ RUN \
 
 RUN pip install uefi_firmware
 
-RUN useradd -m edk2 && echo "edk2:edk2" | chpasswd && adduser edk2 sudo
+RUN useradd -m edk2 && \
+	echo "edk2:edk2" | chpasswd && \
+	adduser edk2 sudo
 
 RUN mkdir /home/edk2/.ccache && \
 	chown edk2:edk2 /home/edk2/.ccache
