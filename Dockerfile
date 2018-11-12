@@ -20,7 +20,7 @@ RUN \
 		zip \
 	&& DEBIAN_FRONTEND=noninteractive apt-get clean
 
-RUN pip install uefi_firmware
+RUN pip install -q uefi_firmware
 
 RUN useradd -m edk2 && \
 	echo "edk2:edk2" | chpasswd && \
