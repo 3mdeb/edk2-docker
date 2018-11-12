@@ -16,6 +16,7 @@ RUN \
 		nasm \
 		iasl \
 		git \
+		gcc-aarch64-linux-gnu \
 		wget \
 		zip \
 	&& DEBIAN_FRONTEND=noninteractive apt-get clean
