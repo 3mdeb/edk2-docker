@@ -2,8 +2,8 @@ FROM ubuntu:16.04
 MAINTAINER Piotr Król <piotr.krol@3mdeb.com>
 
 RUN \
-	apt-get -qq update && \
-	apt-get -qqy install \
+	DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
+	DEBIAN_FRONTEND=noninteractive apt-get -qqy install \
 		ccache \
 		build-essential \
 		python \
@@ -18,7 +18,7 @@ RUN \
 		git \
 		wget \
 		zip \
-	&& apt-get clean
+	&& DEBIAN_FRONTEND=noninteractive apt-get clean
 
 RUN pip install uefi_firmware
 
