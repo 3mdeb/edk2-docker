@@ -46,3 +46,20 @@ $ docker run --rm -it -w /home/edk2 -v $PWD/edk2:/home/edk2/edk2 \
 (docker)$ cd edk2-platforms/Vlv2TbltDevicePkg/
 (docker)$ . Build_IFWI.sh MNW2 Debug
 ```
+
+Building firmware for QEMU AArch64
+----------------------------------
+
+```
+$ docker pull 3mdeb/edk2
+$ git clone https://github.com/tianocore/edk2.git
+$ git clone https://github.com/tianocore/edk2-platforms.git
+$ git clone -b OpenSSL_1_1_0-stable https://github.com/openssl/openssl edk2/CryptoPkg/Library/OpensslLib/openssl
+$ docker run --rm -it -w /home/edk2/edk2 -v $PWD/edk2:/home/edk2/edk2 \
+-v $PWD/edk2-platforms:/home/edk2/edk2-platforms \
+-v ${CCACHE_DIR:-$HOME/.ccache}:/home/edk2/.ccache \
+3mdeb/edk2 /bin/bash
+(docker)$ . edksetup.sh
+(docker)$ make -C BaseTools
+(docker)$ GCC5_AARCH64_PREFIX=aarch64-linux-gnu- build -a AARCH64 -t GCC5 -p ArmVirtPkg/ArmVirtQemu.dsc
+```
