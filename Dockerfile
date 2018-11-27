@@ -17,6 +17,7 @@ RUN \
 		iasl \
 		git \
 		gcc-aarch64-linux-gnu \
+		gcc-arm-linux-gnueabihf \
 		wget \
 		zip \
 	&& DEBIAN_FRONTEND=noninteractive apt-get clean
