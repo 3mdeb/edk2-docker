@@ -41,7 +41,7 @@ $ cd ../../../..
 $ docker run --rm -it -w /home/edk2 -v $PWD/edk2:/home/edk2/edk2 \
 -v $PWD/edk2-platforms:/home/edk2/edk2-platforms \
 -v $PWD/MinnowBoard_MAX-1.00-Binary.Objects:/home/edk2/silicon \
--v $PWD/ccache:/home/edk2/.ccache \
+-v ${CCACHE_DIR:-$HOME/.ccache}:/home/edk2/.ccache \
 3mdeb/edk2 /bin/bash
 (docker)$ cd edk2-platforms/Vlv2TbltDevicePkg/
 (docker)$ . Build_IFWI.sh MNW2 Debug
