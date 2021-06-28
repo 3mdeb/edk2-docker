@@ -7,6 +7,8 @@ RUN \
 		build-essential \
 		ccache \
 		gcc-5 \
+		gcc-aarch64-linux-gnu \
+		git \
 		iasl \
 		libgcc-5-dev \
 		nasm \

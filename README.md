@@ -12,11 +12,9 @@ Usage
 -----
 
 Supported edk2 versions:
-* `vUDK2017`
-
-Tested build targets:
-* [MinnowBoard Max/Turbot](https://github.com/MinnowBoard-org)
-
+* `vUDK2017` - tested build targets:
+	* [MinnowBoard Max/Turbot](https://github.com/MinnowBoard-org)
+	* QEMU AArch64 (ArmVirtPkg/ArmVirtQemu.dsc)
 
 ```
 $ git clone https://github.com/tianocore/edk2.git -b <VERSION>
@@ -55,16 +53,7 @@ Building firmware for QEMU AArch64
 ----------------------------------
 
 ```
-$ docker pull 3mdeb/edk2
-$ git clone https://github.com/tianocore/edk2.git
-$ docker run --rm -it -w /home/edk2/edk2 -v $PWD/edk2:/home/edk2/edk2 \
--v $PWD/edk2-platforms:/home/edk2/edk2-platforms \
--v ${CCACHE_DIR:-$HOME/.ccache}:/home/edk2/.ccache \
-3mdeb/edk2 /bin/bash
-(docker)$ git submodule update --init --checkout
-(docker)$ . edksetup.sh
-(docker)$ make -C BaseTools
-(docker)$ GCC5_AARCH64_PREFIX=aarch64-linux-gnu- build -a AARCH64 -t GCC5 -p ArmVirtPkg/ArmVirtQemu.dsc
+$ ./build-arm-virt-qemu.sh
 ```
 
 Building firmware for Versatile Express ARM
