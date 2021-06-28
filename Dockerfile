@@ -4,25 +4,19 @@ MAINTAINER Piotr Król <piotr.krol@3mdeb.com>
 RUN \
 	DEBIAN_FRONTEND=noninteractive apt-get -qq update && \
 	DEBIAN_FRONTEND=noninteractive apt-get -qqy install \
-		ccache \
 		build-essential \
-		python \
-		python-pip \
-		qemu \
-		sudo \
-		vim \
-		libgcc-5-dev \
-		uuid-dev \
-		nasm \
-		iasl \
-		git \
+		ccache \
+		gcc-5 \
 		gcc-aarch64-linux-gnu \
-		gcc-arm-linux-gnueabihf \
+		git \
+		iasl \
+		libgcc-5-dev \
+		nasm \
+		python \
+		sudo \
+		uuid-dev \
 		wget \
-		zip \
 	&& DEBIAN_FRONTEND=noninteractive apt-get clean
-
-RUN pip install -q uefi_firmware
 
 RUN useradd -m edk2 && \
 	echo "edk2:edk2" | chpasswd && \
