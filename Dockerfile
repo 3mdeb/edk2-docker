@@ -11,6 +11,7 @@ RUN \
 		qemu \
 		sudo \
 		vim \
+		libc6-dev-i386 \
 		libgcc-5-dev \
 		uuid-dev \
 		nasm \
