@@ -20,6 +20,8 @@ RUN \
 		gcc-arm-linux-gnueabihf \
 		wget \
 		zip \
+	&& DEBIAN_FRONTEND=noninteractive apt-get -qqy install \
+		libc6-dev-i386 \
 	&& DEBIAN_FRONTEND=noninteractive apt-get clean
 
 RUN pip install -q uefi_firmware
