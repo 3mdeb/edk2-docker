@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Piotr Król <piotr.krol@3mdeb.com>
 
 RUN \
@@ -6,8 +6,8 @@ RUN \
 	DEBIAN_FRONTEND=noninteractive apt-get -qqy install \
 		ccache \
 		build-essential \
-		python \
-		python-pip \
+		python3.7 \
+		python3-pip \
 		qemu \
 		sudo \
 		vim \
@@ -22,7 +22,7 @@ RUN \
 		zip \
 	&& DEBIAN_FRONTEND=noninteractive apt-get clean
 
-RUN pip install -q uefi_firmware
+RUN pip3 install -q uefi_firmware
 
 RUN useradd -m edk2 && \
 	echo "edk2:edk2" | chpasswd && \
